@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use \DB;
 
 class CreateEmployeers extends Migration
 {
@@ -20,7 +21,7 @@ class CreateEmployeers extends Migration
             $table->string('lastName');
             $table->string('surName');
             $table->double('salary');
-            $table->dateTime('adoptionDate');
+            $table->dateTime('adoptionDate')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->integer('chiefID')->unsigned();
             $table->integer('positionID')->unsigned();
             $table->string('imageProfile');
