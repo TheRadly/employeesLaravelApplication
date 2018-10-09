@@ -6,7 +6,7 @@ use App\Employeer;
 class EmployeesSeeder extends Seeder {
 
     // Total number of employees
-    private static $countEmployeers = 1000;
+    private static $countEmployeers = 50000;
 
     static private $firstNamesArrayMale = [
 
