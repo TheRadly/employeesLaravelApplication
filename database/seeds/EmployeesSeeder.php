@@ -117,7 +117,9 @@ class EmployeesSeeder extends Seeder {
         $countDispatcher = round(EmployeesSeeder::$countEmployeers * 0.30);
         $countSecretary = round(EmployeesSeeder::$countEmployeers * 0.49);
 
-        for($i = 0; $i < $countDirector; $i++){
+        $chiefID = 1;
+
+        for ($i = 0; $i < $countDirector; $i++){
 
             Employeer::create([
 
@@ -125,12 +127,77 @@ class EmployeesSeeder extends Seeder {
                 'firstName' => EmployeesSeeder::$firstNamesArrayMale[rand(0, count(EmployeesSeeder::$firstNamesArrayMale) - 1)],
                 'lastName' => EmployeesSeeder::$lastNamesArrayMale[rand(0, count(EmployeesSeeder::$lastNamesArrayMale) - 1)],
                 'surName' => EmployeesSeeder::$surNameArrayMale[rand(0, count(EmployeesSeeder::$surNameArrayMale) - 1)],
-                'salary' => rand(45000, 125000)
+                'salary' => rand(150000, 200000)
 
-            ]);
+            ]); // Employeer
 
-        } // For I
+        } // For I - Filling Directors
 
+        for ($i = 0; $i < $countDeputy; $i++){
+
+            Employeer::create([
+
+                'chiefID' => rand($chiefID, $countDirector),
+                'positionID' => 2,
+                'firstName' => EmployeesSeeder::$firstNamesArrayMale[rand(0, count(EmployeesSeeder::$firstNamesArrayMale) - 1)],
+                'lastName' => EmployeesSeeder::$lastNamesArrayMale[rand(0, count(EmployeesSeeder::$lastNamesArrayMale) - 1)],
+                'surName' => EmployeesSeeder::$surNameArrayMale[rand(0, count(EmployeesSeeder::$surNameArrayMale) - 1)],
+                'salary' => rand(90000, 150000)
+
+            ]); // Employeer
+
+        } // For I - Filling Deputys
+
+        $chiefID = $countDirector;
+
+        for ($i = 0; $i < $countLawyer; $i++){
+
+            Employeer::create([
+
+                'ChiefID' => rand($chiefID, $chiefID + $countDeputy),
+                'PositionID' => 3,
+                'FirstName' => EmployeesSeeder::$firstNamesArrayMale[rand(0, count(EmployeesSeeder::$firstNamesArrayMale) - 1)],
+                'LastName' => EmployeesSeeder::$lastNamesArrayMale[rand(0, count(EmployeesSeeder::$lastNamesArrayMale) - 1)],
+                'SurName' => EmployeesSeeder::$surNameArrayMale[rand(0, count(EmployeesSeeder::$surNameArrayMale) - 1)],
+                'Salary' => rand(60000, 90000)
+
+            ]); // Employeer
+
+        } // For I - Filling Lawyers
+
+        $chiefID += $countDeputy;
+
+        for ($i = 0; $i < $countDispatcher; $i++){
+
+            Employeer::create([
+
+                'ChiefID' => rand($chiefID, $chiefID + $countLawyer),
+                'PositionID' => 4,
+                'FirstName' => EmployeesSeeder::$firstNamesArrayFemale[rand(0, count(EmployeesSeeder::$firstNamesArrayFemale) - 1)],
+                'LastName' => EmployeesSeeder::$lastNameArrayFemale[rand(0, count(EmployeesSeeder::$lastNameArrayFemale) - 1)],
+                'SurName' => EmployeesSeeder::$surNameArrayFemale[rand(0, count(EmployeesSeeder::$surNameArrayFemale) - 1)],
+                'Salary' => rand(45000, 60000)
+
+            ]); // Employeer
+
+        } // For I - Filling Dispatchers
+
+        $chiefID += $countLawyer;
+
+        for ($i = 0; $i < $countSecretary; $i++){
+
+            Employeer::create([
+
+                'ChiefID' => rand($chiefID, $chiefID + $countDispatcher),
+                'PositionID' => 5,
+                'FirstName' => EmployeesSeeder::$firstNamesArrayFemale[rand(0, count(EmployeesSeeder::$firstNamesArrayFemale) - 1)],
+                'LastName' => EmployeesSeeder::$lastNameArrayFemale[rand(0, count(EmployeesSeeder::$lastNameArrayFemale) - 1)],
+                'SurName' => EmployeesSeeder::$surNameArrayFemale[rand(0, count(EmployeesSeeder::$surNameArrayFemale) - 1)],
+                'Salary' => rand(30000, 45000)
+
+            ]); // Employeer
+
+        } // For I - Filling Secretarys
 
     } // Run
 

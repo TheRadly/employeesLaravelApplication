@@ -22,9 +22,9 @@ class CreateEmployeers extends Migration
             $table->string('surName');
             $table->double('salary');
             $table->dateTime('adoptionDate')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->integer('chiefID')->unsigned();
+            $table->integer('chiefID')->unsigned()->nullable(true);
             $table->integer('positionID')->unsigned();
-            $table->string('imageProfile');
+            $table->string('imageProfile')->nullable(true);
 
             $table->foreign('chiefID')->references('id')->on('employeers');
             $table->foreign('positionID')->references('positionID')->on('positions');
