@@ -1,49 +1,40 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>Employee Application</title>
+
+    <!-- TreeView JQuery -->
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/shieldui-core.min.js"></script>
+    <script src="/js/shieldui-treeview.min.js"></script>
+
+    <!-- TreeView -->
+    <link href="/css/treeview.min.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/tree.jquery.js"></script>
-    <link rel="stylesheet" href="css/jqtree.css">
-
 </head>
 <body>
 
-    <div id="tree1">
+@extends('layouts.app')
 
-    </div>
+@section('content')
 
-    <script>
+<div id="treeview"></div>
 
-        var data = [
-            {
-                name: 'node1', id: 1,
-                children: [
-                    { name: 'child1', id: 2 },
-                    { name: 'child2', id: 3 }
-                ]
-            },
-            {
-                name: 'node2', id: 4,
-                children: [
-                    { name: 'child3', id: 5 }
-                ]
-            }
-        ];
+<!-- Api TreeView-->
+<script src="/js/TreeView.js"></script>
 
-        $('#tree1').tree({
-            data: data
-        });
-
-    </script>
+@endsection
 
 </body>
+
 </html>
+
