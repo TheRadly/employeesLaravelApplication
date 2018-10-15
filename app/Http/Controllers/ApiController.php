@@ -26,4 +26,33 @@ class ApiController extends Controller {
 
     } // GetEmployeers
 
+    public function GetListEmployeers(Request $request){
+
+        $offset = $request->get('offset');
+        $limit = $request->get('limit');
+        $orderBy = $request->get('orderBy');
+        $sort = $request->get('sort');
+        $search = $request->get('search');
+        $searchValue = $request->get('searchValue');
+        $employees = Employeer::join('positions', 'employeers.positionID', '=', 'positions.positionID');
+
+
+        if($search && $searchValue){
+
+            if($search === 'firstName' || $search === 'lastName' || $search === 'surName'){
+                $employees = $employees->where($search, 'LIKE', "${searchValue}%");
+            } // If
+
+            else{
+                $employees = $employees->where($search, '=', $searchValue);
+            } // Else
+
+        } // If
+
+        $employees = $employees->orderBy($orderBy, $sort)->offset($offset)->limit($limit)->get();
+
+        return response()->json($employees);
+
+    } // GetListEmployeers
+
 } // ApiController

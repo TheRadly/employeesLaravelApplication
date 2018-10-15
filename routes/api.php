@@ -13,5 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+// API: GetEmployeers
 Route::get('get-employeers/{id}', 'ApiController@GetEmployeers');
 
+// API: GetListEmployeers
+Route::post('get-list-employeers', 'ApiController@GetListEmployeers');

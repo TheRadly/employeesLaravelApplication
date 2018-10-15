@@ -15,14 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Get TreeView page
 Route::get('/treeview', 'TreeViewController@TreeView')->name('treeview');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/listEmployees', 'ListController@ListEmployees')->name('listEmployees');
 
 Auth::routes();
 

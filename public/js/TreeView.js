@@ -10,7 +10,7 @@ let ajaxReq = new shield.RecursiveDataSource({
                 $.ajax({
 
                     url: `/api/get-employeers/${currentNode.parent.id}`,
-                    type: 'GET'
+                    type: 'GET',
 
                 }).done(function (data) {
 
@@ -42,7 +42,7 @@ let ajaxReq = new shield.RecursiveDataSource({
 
                 }).fail(function () {
                     success([], false, currentNode);
-                }); // Fail
+                });
 
             } // If
 
@@ -53,7 +53,7 @@ let ajaxReq = new shield.RecursiveDataSource({
 });
 
 let data =  [{
-    text: "Staff tree", id: 0, hasChildren: true, items: ajaxReq
+    text: "TreeEmployeers", id: 0, hasChildren: true, items: ajaxReq
 }]; // Data
 
 $("#treeview").shieldTreeView({

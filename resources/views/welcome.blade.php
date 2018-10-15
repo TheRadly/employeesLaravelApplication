@@ -96,13 +96,16 @@
 
                 <div class="links">
 
-                    {{--<form method="get" action="treeview">--}}
-                        <a href="{{route('treeview')}}">Древо сотрудников</a>
-                        {{--<input type="hidden"/>--}}
-                    {{--</form>--}}
+                     <a href="{{route('treeview')}}">Древо сотрудников</a>
+                     <a href="{{route('listEmployees')}}">Список сотрудников</a>
 
                 </div>
+
             </div>
+
         </div>
+
     </body>
+
 </html>
+
