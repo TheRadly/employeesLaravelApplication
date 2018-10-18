@@ -1,24 +1,75 @@
 
+// let SortSelect = $('#SortSelect')[0];
+// let LimitSelect = $('#LimitSelect')[0];
+let DataInput = $('#dataInput')[0];
+// let SortTypeSelect = $('#SortTypeSelect')[0];
+let SearchSelect = $('#formSelectSearch')[0];
+// let NextButton = $('#NextButton')[0];
+// let PrevButton = $('#PrevButton')[0];
+let Table = $('#table')[0];
+
+
+// Лимит списков на одной странице
+let Limit = 500;
+
+// Смещение
+let Offset = 0;
+
+// Сортировка по 'id' и т.д
+let Sort = 'id';
+
+// Сортировка по возрастанию/убыванию
+let SortType = 'Asc';
+
+// Поиск по 'id' и т.д
+let Search = 'id';
+
+// Данные поиска
+let SearchData = '';
+
+// Массив сотрудников
+let listArray = [];
+
+
+if(SearchSelect){
+
+    Search = SearchSelect[0].value ? SearchSelect[0].value: Search;
+
+    SearchSelect.addEventListener('change', function (event) {
+
+        Search = event.srcElement.value;
+        console.log(Search);
+        if(DataInput){
+
+            SearchData = DataInput.value = '';
+
+        } // If - Если введено значение в поле поиска
+
+        Offset = 0;
+
+        GetListEmployeers();
+
+    }); // SearchSelect
+
+} // If - Если выбран селектор полей для поиска
+
+if(DataInput){
+
+    SearchData = DataInput.value ? DataInput.value : SearchData;
+
+    DataInput.addEventListener('input', function (event) {
+
+        SearchData = event.srcElement.value;
+
+        Offset = 0;
+
+        GetListEmployeers();
+
+    });
+
+}//if
 
 function GetListEmployeers() {
-
-    // let SortSelect = $('#SortSelect')[0];
-    // let LimitSelect = $('#LimitSelect')[0];
-    // let DataInput = $('#DataInput')[0];
-    // let SortTypeSelect = $('#SortTypeSelect')[0];
-    // let SearchSelect = $('#SearchSelect')[0];
-    // let NextButton = $('#NextButton')[0];
-    // let PrevButton = $('#PrevButton')[0];
-    let Table = $('#table')[0];
-
-    let Limit = 10;
-    let Offset = 0;
-    let Sort = 'id';
-    let SortType = 'Asc';
-    let Search = 'id';
-    let SearchData = '';
-
-    let listArray = [];
 
         $.ajax({
 
@@ -34,11 +85,12 @@ function GetListEmployeers() {
             }),
             url: `/api/get-list-employeers`,
             type: 'POST'
+
         }).done(function (data) {
 
             if(Table){
 
-                clearTable(Table);
+                ClearTable(Table);
 
                 if(data && data.length > 0){
 
@@ -60,18 +112,16 @@ function GetListEmployeers() {
                                         <td>${employee.salary}</td>
                                       </tr>`;
 
-                    });
+                    }); // ForEach
 
                     Table.innerHTML = htmlTable;
 
-                }//if
+                } // If
                 else {
-
                     employeeList = [];
+                } // Else
 
-                }//else
-
-            }//if
+            } // If
 
         }).fail(function () {
 
@@ -80,21 +130,20 @@ function GetListEmployeers() {
                 clearChild(Table);
                 employeeList = [];
 
-            }//if
+            } // If
 
-        });
+        }); // Fail
 
+} // GetListEmployeers - Получение списка сотрудников
 
-}//getEmployeeList
-
-function clearTable(elem){
+function ClearTable(elem){
 
     while (elem.firstChild) {
 
         elem.removeChild(elem.firstChild);
 
-    }//while
+    } // While
 
-}//clearChild
+} // ClearTable - Очистка таблицы
 
 GetListEmployeers();

@@ -50,7 +50,7 @@ let ajaxReq = new shield.RecursiveDataSource({
 
     } // Remote
 
-});
+}); // AjaxReq
 
 let data =  [{
     text: "TreeEmployeers", id: 0, hasChildren: true, items: ajaxReq
