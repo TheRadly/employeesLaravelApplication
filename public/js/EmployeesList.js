@@ -8,7 +8,6 @@ let SearchSelect = $('#formSelectSearch')[0];
 // let PrevButton = $('#PrevButton')[0];
 let Table = $('#table')[0];
 
-
 // Лимит списков на одной странице
 let Limit = 500;
 
@@ -175,5 +174,16 @@ function ClearTable(elem){
     } // While
 
 } // ClearTable - Очистка таблицы
+
+$(document).ready(function(){
+
+    $("#hidderDiv").click(function(){
+
+        $("#hiddenElementsSeacrhing").slideToggle("slow");
+        return false;
+
+    }); // Click
+
+}); // Document Ready - Анимация разворачивания/сворачивания полей
 
 GetListEmployeers();

@@ -5,72 +5,80 @@
 <!-- Если пользователь авторизирован -->
 @if(Auth::check())
 
-    <div style="margin-left: 20px" id="formsSearching">
+    <div id="hiddenElementsSeacrhing" style="display: none">
 
-        <div style="display: inline-block" class="form-group">
+        <div style="margin-left: 20px" id="formsSearching">
 
-            <label>Выберите поле для поиска:</label>
+            <div style="display: inline-block" class="form-group">
 
-            <select class="form-control" id="formSelectSearch">
+                <label>Выберите поле для поиска:</label>
 
-                <option value="id">ID</option>
-                <option value="firstName">Имя</option>
-                <option value="lastName">Фамилия</option>
-                <option value="surName">Отчество</option>
-                <option value="postValue">Должность</option>
-                <option value="adoptionDate">Дата приема на работу</option>
-                <option value="salary">Заработная плата</option>
+                <select class="form-control" id="formSelectSearch">
 
-            </select>
+                    <option value="id">ID</option>
+                    <option value="firstName">Имя</option>
+                    <option value="lastName">Фамилия</option>
+                    <option value="surName">Отчество</option>
+                    <option value="postValue">Должность</option>
+                    <option value="adoptionDate">Дата приема на работу</option>
+                    <option value="salary">Заработная плата</option>
+
+                </select>
+
+            </div>
+
+            <p style="display: inline-block">-></p>
+
+            <div style="display: inline-block" class="form-group">
+
+                <label>Значение поля</label>
+                <input class="form-control" id="dataInput" placeholder="Введите текст">
+
+            </div>
 
         </div>
 
-        <p style="display: inline-block">-></p>
+        <div style="margin-left: 20px" id="formsSorts">
 
-        <div style="display: inline-block" class="form-group">
+            <div style="display: inline-block" class="form-group">
 
-            <label>Значение поля</label>
-            <input class="form-control" id="dataInput" placeholder="Введите текст">
+                <label>Тип сортировки:</label>
+
+                <select class="form-control" id="formSelectSortType">
+
+                    <option value="asc">По возрастанию</option>
+                    <option value="desc">По убыванию</option>
+
+                </select>
+
+            </div>
+
+            <p style="display: inline-block">-></p>
+
+            <div style="display: inline-block" class="form-group">
+
+                <label>Сортировать по: </label>
+
+                <select class="form-control" id="formSelectSortName">
+
+                    <option value="id">ID</option>
+                    <option value="firstName">Имени</option>
+                    <option value="lastName">Фамилии</option>
+                    <option value="surName">Отчеству</option>
+                    <option value="postValue">Должности</option>
+                    <option value="adoptionDate">Даты приема на работу</option>
+                    <option value="salary">Заработной плате</option>
+
+                </select>
+
+            </div>
 
         </div>
 
     </div>
 
-    <div style="margin-left: 20px" id="formsSorts">
-
-        <div style="display: inline-block" class="form-group">
-
-            <label>Тип сортировки:</label>
-
-            <select class="form-control" id="formSelectSortType">
-
-                <option value="asc">По возрастанию</option>
-                <option value="desc">По убыванию</option>
-
-            </select>
-
-        </div>
-
-        <p style="display: inline-block">-></p>
-
-        <div style="display: inline-block" class="form-group">
-
-            <label>Сортировать по: </label>
-
-            <select class="form-control" id="formSelectSortName">
-
-                <option value="id">ID</option>
-                <option value="firstName">Имени</option>
-                <option value="lastName">Фамилии</option>
-                <option value="surName">Отчеству</option>
-                <option value="postValue">Должности</option>
-                <option value="adoptionDate">Даты приема на работу</option>
-                <option value="salary">Заработной плате</option>
-
-            </select>
-
-        </div>
-
+    <div style="background: #ffffff; box-shadow: 0 0 2px rgba(0,0,0,0.5); cursor: pointer" id="hidderDiv">
+        <p id="arrowDiv" style="font-size: 18px; text-align: center; color:#5c5c5c">Развернуть поля поиска</p>
     </div>
 
     <table class="table table-inverse">
