@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // Get TreeView page
 Route::get('/treeview', 'TreeViewController@TreeView')->name('treeview');
@@ -21,5 +21,3 @@ Route::get('/treeview', 'TreeViewController@TreeView')->name('treeview');
 Route::get('/listEmployees', 'ListController@ListEmployees')->name('listEmployees');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

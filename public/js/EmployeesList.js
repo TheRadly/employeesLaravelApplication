@@ -1,8 +1,8 @@
 
-// let SortSelect = $('#SortSelect')[0];
+let SortSelect = $('#formSelectSortName')[0];
 // let LimitSelect = $('#LimitSelect')[0];
 let DataInput = $('#dataInput')[0];
-// let SortTypeSelect = $('#SortTypeSelect')[0];
+let SortTypeSelect = $('#formSelectSortType')[0];
 let SearchSelect = $('#formSelectSearch')[0];
 // let NextButton = $('#NextButton')[0];
 // let PrevButton = $('#PrevButton')[0];
@@ -39,6 +39,7 @@ if(SearchSelect){
 
         Search = event.srcElement.value;
         console.log(Search);
+
         if(DataInput){
 
             SearchData = DataInput.value = '';
@@ -60,14 +61,43 @@ if(DataInput){
     DataInput.addEventListener('input', function (event) {
 
         SearchData = event.srcElement.value;
-
         Offset = 0;
 
         GetListEmployeers();
 
-    });
+    }); // Event
 
-}//if
+}//if - Если введено значение в поле
+
+if(SortTypeSelect){
+
+    SortType = SortTypeSelect.value ? SortTypeSelect.value: SortType;
+
+    SortTypeSelect.addEventListener('change', function (event) {
+
+        SortType = event.srcElement.value;
+        Offset = 0;
+
+        GetListEmployeers();
+
+    }); // Event
+
+} // If - Если выбран селектор выбора типа сортировки
+
+if(SortSelect){
+
+    Sort = SortSelect.value ? SortSelect.value: Sort;
+
+    SortSelect.addEventListener('change', function (event) {
+
+        Sort = event.srcElement.value;
+        Offset = 0;
+
+        GetListEmployeers();
+
+    }); // Event
+
+} // If - Если выбран тип поля, по которому сортировка
 
 function GetListEmployeers() {
 
