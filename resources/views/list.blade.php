@@ -81,7 +81,7 @@
         <p id="arrowDiv" style="font-size: 18px; text-align: center; color:#5c5c5c">Развернуть поля поиска</p>
     </div>
 
-    <table class="table table-inverse">
+    <table class="table table-inverse table-hover">
 
         <thead>
 
@@ -102,6 +102,10 @@
         </tbody>
 
     </table>
+
+    <div style="background: #ffffff; box-shadow: 0 0 2px rgba(0,0,0,0.5); cursor: pointer" id="moreList">
+        <p style="font-size: 18px; text-align: center; color:#5c5c5c">Загрузить еще ..</p>
+    </div>
 
     <script src="{{ asset('js/EmployeesList.js' )}}"></script>
 

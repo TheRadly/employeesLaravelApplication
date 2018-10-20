@@ -27,23 +27,32 @@
                             @endif
                         </li>
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+
+                        <div class="nav-item dropdown">
+
+                            <p id="navbarDropdown" v-pre>
+                                Здравствуйте, {{Auth::user()->name }}
+                            </p>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+
+                               onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                {{ __('Выйти') }}
+
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Выйти') }}
-                                </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+
+                        </div>
+
+                        <div style="position: absolute; margin-left: 350px; margin-top: 7px;">
+                            <a style="color:#929292; font-size: 16px" href="{{ route('welcome') }}">Домой</a>
+                        </div>
+
                     @endguest
                 </ul>
             </div>

@@ -1,15 +1,13 @@
 
 let SortSelect = $('#formSelectSortName')[0];
-// let LimitSelect = $('#LimitSelect')[0];
 let DataInput = $('#dataInput')[0];
 let SortTypeSelect = $('#formSelectSortType')[0];
 let SearchSelect = $('#formSelectSearch')[0];
-// let NextButton = $('#NextButton')[0];
-// let PrevButton = $('#PrevButton')[0];
+let NextButton = $('#moreList')[0];
 let Table = $('#table')[0];
 
 // Лимит списков на одной странице
-let Limit = 500;
+let Limit = 50;
 
 // Смещение
 let Offset = 0;
@@ -131,8 +129,8 @@ function GetListEmployeers() {
 
                     data.forEach(employee => {
 
-                        htmlTable += `<tr>
-                                        <th scope="row"><a href="/single-employee/${employee.id}">${employee.id}</a></th>
+                        htmlTable += `<tr style="cursor: pointer" class="singleStroke" data-id="${employee.id}">
+                                        <th scope="row"><p>${employee.id}</p></th>
                                         <td>${employee.firstName}</td>
                                         <td>${employee.lastName}</td>
                                         <td>${employee.surName}</td>
@@ -142,6 +140,18 @@ function GetListEmployeers() {
                                       </tr>`;
 
                     }); // ForEach
+
+                    $(document).ready(function(){
+
+                        $(".singleStroke").click(function(event){
+
+                            console.log(event.currentTarget.dataset.id);
+
+                            document.location.href = `/single-page/${event.currentTarget.dataset.id}`
+
+                        }); // Click
+
+                    }); // Document Ready - Анимация разворачивания/сворачивания полей
 
                     Table.innerHTML = htmlTable;
 
@@ -184,6 +194,13 @@ $(document).ready(function(){
 
     }); // Click
 
-}); // Document Ready - Анимация разворачивания/сворачивания полей
+}); // Document Ready - обработка клика
+
+NextButton.addEventListener('click',function () {
+
+    Limit += 50;
+    GetListEmployeers();
+
+}); // NextButton Event - обработка пагинации
 
 GetListEmployeers();

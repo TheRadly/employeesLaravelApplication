@@ -18,6 +18,8 @@ Route::get('/', function () {
 // Get TreeView page
 Route::get('/treeview', 'TreeViewController@TreeView')->name('treeview');
 
-Route::get('/listEmployees', 'ListController@ListEmployees')->name('listEmployees');
+Route::get('/list-employees', 'ListController@ListEmployees')->name('listEmployees');
+
+Route::get('/single-page/{id}', 'SinglePageController@SinglePage')->name('singlePage');
 
 Auth::routes();
