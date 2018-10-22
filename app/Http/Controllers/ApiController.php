@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Employeer;
+use \DB;
 
 class ApiController extends Controller {
 
@@ -54,5 +55,12 @@ class ApiController extends Controller {
         return response()->json($employees);
 
     } // GetListEmployeers
+
+    public function GetCurrentEmployeer(Request $request){
+
+//        Employeer::where('id', '=', id)->update(['firstname' => firstname, 'ln' => ln]);
+//        $employees = Employeer::join('positions', 'employeers.positionID', '=', 'positions.positionID');
+
+    } // GetCurrentEmployeer
 
 } // ApiController

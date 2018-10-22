@@ -18,3 +18,6 @@ Route::get('get-employeers/{id}', 'ApiController@GetEmployeers');
 
 // API: GetListEmployeers
 Route::post('get-list-employeers', 'ApiController@GetListEmployeers');
+
+// API: GetCurrentEmployeer
+Route::post('get-current-employeer', 'ApiController@GetCurrentEmployeer');
