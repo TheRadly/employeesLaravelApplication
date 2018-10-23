@@ -11,9 +11,11 @@ class SinglePageController extends Controller {
     public function SinglePage($id){
 
         $employeer = Employeer::find($id);
-        $position = Position::find($employeer->positionID);
+        $positions = Position::get();
 
-        return view('single-page', ['employeer' => $employeer, 'position' => $position]);
+        $director = Employeer::find($employeer->chiefID);
+
+        return view('single-page', ['employeer' => $employeer, 'positions' => $positions, 'director' => $director]);
 
     } // ReturnViewSinglePage
 

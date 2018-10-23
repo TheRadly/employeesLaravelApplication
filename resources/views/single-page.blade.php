@@ -33,40 +33,52 @@
                                     <div class="form-group row">
                                         <label for="id" class="col-4 col-form-label">ID: </label>
                                         <div class="col-8">
-                                            <input value="{{$employeer->id}}" id="id" name="id" class="form-control here" required="required" type="text">
+                                            <input disabled value="{{$employeer->id}}" id="id" name="id" class="form-control here" required="required" type="text">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="firstName" class="col-4 col-form-label">Имя: </label>
                                         <div class="col-8">
-                                            <input value="{{$employeer->firstName}}" id="firstName" name="firstName" class="form-control here" required="required" type="text">
+                                            <input disabled value="{{$employeer->firstName}}" id="firstName" name="firstName" class="form-control here" required="required" type="text">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="lastName" class="col-4 col-form-label">Фамилия: </label>
                                         <div class="col-8">
-                                            <input value="{{$employeer->lastName}}" id="lastName"  name="lastName" class="form-control here" type="text">
+                                            <input disabled value="{{$employeer->lastName}}" id="lastName"  name="lastName" class="form-control here" type="text">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="surName" class="col-4 col-form-label">Отчество: </label>
                                         <div class="col-8">
-                                            <input value="{{$employeer->surName}}" id="surName" name="surName" class="form-control here" type="text">
+                                            <input disabled value="{{$employeer->surName}}" id="surName" name="surName" class="form-control here" type="text">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
+
                                         <label for="postValue" class="col-4 col-form-label">Должность: </label>
                                         <div class="col-8">
 
-                                            <select id="postValue" name="postValue" class="custom-select">
-                                                <option selected value="{{$position->positionID}}">{{$position->postValue}}</option>
+                                            <select disabled id="postValue" name="postValue" class="custom-select">
+
+                                                @foreach ($positions as $position)
+
+                                                    @if($position->positionID === $employeer->positionID)
+                                                        <option selected value="{{$position->positionID}}">{{$position->postValue}}</option>
+                                                    @else
+                                                        <option value="{{$position->positionID}}">{{$position->postValue}}</option>
+                                                    @endif
+
+                                                @endforeach
+
                                             </select>
 
                                         </div>
+
                                     </div>
 
                                     <div class="form-group row">
@@ -74,9 +86,9 @@
                                         <div class="col-8">
 
                                             @if ($employeer->chiefID === null)
-                                                <input value="Отсутствует" id="chief" name="chief"  class="form-control here" required="required" type="text">
+                                                <input disabled value="Отсутствует" id="chief" name="chief"  class="form-control here" required="required" type="text">
                                             @else
-                                                <input value="{{$employeer->chiefID}}" id="chief" name="chief"  class="form-control here" required="required" type="text">
+                                                <input disabled value="{{$director->firstName . ' ' . $director->lastName . ' ' . $director->surName . ' - ID: '. $director->id}}" id="chief" name="chief"  class="form-control here" required="required" type="text">
                                             @endif
 
                                         </div>
@@ -85,7 +97,7 @@
                                     <div class="form-group row">
                                         <label for="salary" class="col-4 col-form-label">Зарплата: </label>
                                         <div class="col-8">
-                                            <input value="{{$employeer->salary}}" id="salary" name="salary"  class="form-control here" required="required" type="text">
+                                            <input disabled value="{{$employeer->salary}}" id="salary" name="salary"  class="form-control here" required="required" type="text">
                                         </div>
                                     </div>
 
@@ -99,9 +111,12 @@
                                     </div>
 
                                     <div class="form-group row">
+
                                         <div class="offset-4 col-8">
-                                            <button name="submit" type="submit" class="btn btn-primary">Обновить данные</button>
+                                            <button disabled id="submit" name="submit" type="submit" class="btn btn-primary">Обновить данные</button>
+                                            <button id="editEmployee" name="editEmployee" class="btn btn-dark">Редактировать сотрудника</button>
                                         </div>
+
                                     </div>
                                 </form>
                             </div>

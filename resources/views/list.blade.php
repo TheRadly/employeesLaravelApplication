@@ -86,6 +86,7 @@
         <thead>
 
             <tr>
+
                 <th>#</th>
                 <th>Имя</th>
                 <th>Фамилия</th>
@@ -93,11 +94,12 @@
                 <th>Должность</th>
                 <th>Дата приема на работу</th>
                 <th>Заработная плата</th>
+
             </tr>
 
         </thead>
 
-        <tbody id="table">
+        <tbody class="table" id="table">
 
         </tbody>
 

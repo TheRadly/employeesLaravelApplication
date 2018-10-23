@@ -3,8 +3,8 @@ let SortSelect = $('#formSelectSortName')[0];
 let DataInput = $('#dataInput')[0];
 let SortTypeSelect = $('#formSelectSortType')[0];
 let SearchSelect = $('#formSelectSearch')[0];
-let NextButton = $('#moreList')[0];
 let Table = $('#table')[0];
+let ButtonHideSort = $('#arrowDiv')[0];
 
 // Лимит списков на одной странице
 let Limit = 50;
@@ -35,7 +35,6 @@ if(SearchSelect){
     SearchSelect.addEventListener('change', function (event) {
 
         Search = event.srcElement.value;
-        console.log(Search);
 
         if(DataInput){
 
@@ -190,17 +189,22 @@ $(document).ready(function(){
     $("#hidderDiv").click(function(){
 
         $("#hiddenElementsSeacrhing").slideToggle("slow");
+
+        ButtonHideSort.innerHTML == 'Развернуть поля поиска' ?
+            ButtonHideSort.innerHTML = 'Свернуть поля поиска':
+            ButtonHideSort.innerHTML = 'Развернуть поля поиска';
+
         return false;
 
-    }); // Click
+    }); // Обработка клика для вывода полей сортировки
 
-}); // Document Ready - обработка клика
+    $("#moreList").click(function () {
 
-NextButton.addEventListener('click',function () {
+        Limit += 50;
+        GetListEmployeers();
 
-    Limit += 50;
-    GetListEmployeers();
+    }); // Обработка клика пагинации
 
-}); // NextButton Event - обработка пагинации
+}); // Document Ready
 
 GetListEmployeers();
