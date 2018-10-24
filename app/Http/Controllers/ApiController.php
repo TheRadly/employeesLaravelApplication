@@ -63,4 +63,12 @@ class ApiController extends Controller {
 
     } // GetCurrentEmployeer
 
+    public function GetNewChief($id){
+
+        $newChief = Employeer::find($id);
+
+        return response()->json($newChief);
+
+    } // GetNewChief
+
 } // ApiController

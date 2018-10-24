@@ -5,7 +5,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 ">
+
                 <img class="border border-dark rounded" style="height: 370px;  object-fit: cover; width: 270px;" src="https://лада.онлайн/uploads/posts/2015-01/1421148530_pf240_1.jpg">
+                <div hidden id="inputFile" class="custom-file" style="margin-top: 15px;">
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*" required>
+                    <label class="custom-file-label" for="validatedCustomFile" id="imageLabel">Choose file...</label>
+                </div>
+
             </div>
             <div class="col-md-9">
 
@@ -17,7 +23,7 @@
 
                             <div class="col-md-12">
 
-                                <h4>Профиль сотрудника: {{$employeer->firstName . ' ' . $employeer->lastName . ' ' . $employeer->surName}}</h4>
+                                <h4>Профиль сотрудника: {{$employeer->lastName . ' ' . $employeer->firstName . ' ' . $employeer->surName}}</h4>
                                 <hr>
 
                             </div>
@@ -83,15 +89,29 @@
 
                                     <div class="form-group row">
                                         <label for="chief" class="col-4 col-form-label">Шеф: </label>
-                                        <div class="col-8">
 
                                             @if ($employeer->chiefID === null)
-                                                <input disabled value="Отсутствует" id="chief" name="chief"  class="form-control here" required="required" type="text">
+
+                                                <div class="col-8">
+                                                    <input disabled value="Отсутствует" id="chief" name="chief"  class="form-control here" required="required" type="text">
+                                                </div>
+
                                             @else
-                                                <input disabled value="{{$director->firstName . ' ' . $director->lastName . ' ' . $director->surName . ' - ID: '. $director->id}}" id="chief" name="chief"  class="form-control here" required="required" type="text">
+
+                                                <div class="col-5">
+                                                    <input disabled value="{{$director->firstName . ' ' . $director->lastName . ' ' . $director->surName}}" id="chief" name="chief"  class="form-control here" required="required" type="text">
+                                                </div>
+
+                                                <div class="col-1 align-self-center">
+                                                    <label style="margin-bottom: 0px;">ID: </label>
+                                                </div>
+
+                                                <div class="col-2">
+                                                    <input disabled min="1" value="{{$director->id}}" id="chiefID" name="chiefID" class="form-control here" required="required" type="number">
+                                                </div>
+
                                             @endif
 
-                                        </div>
                                     </div>
 
                                     <div class="form-group row">
@@ -114,11 +134,12 @@
 
                                         <div class="offset-4 col-8">
                                             <button disabled id="submit" name="submit" type="submit" class="btn btn-primary">Обновить данные</button>
-                                            <button id="editEmployee" name="editEmployee" class="btn btn-dark">Редактировать сотрудника</button>
+                                            <div id="editEmployee" name="editEmployee" class="btn btn-dark">Редактировать сотрудника</div>
                                         </div>
 
                                     </div>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -127,4 +148,5 @@
         </div>
     </div>
 
+    <script src="{{ asset('js/SinglePageUser.js' )}}"></script>
 @endsection

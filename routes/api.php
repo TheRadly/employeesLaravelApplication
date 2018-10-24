@@ -21,3 +21,5 @@ Route::post('get-list-employeers', 'ApiController@GetListEmployeers');
 
 // API: GetCurrentEmployeer
 Route::post('get-current-employeer', 'ApiController@GetCurrentEmployeer');
+
+Route::post('get-new-chief/{id}', 'ApiController@GetNewChief');
