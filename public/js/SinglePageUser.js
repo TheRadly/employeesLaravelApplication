@@ -11,6 +11,7 @@ $(document).ready(function () {
     let FileInput = $('#inputFile')[0];
     let Chief = $('#chief')[0];
     let Position = $('#postValue')[0];
+    let Update = $('#submit')[0];
 
     if(ChiefID){
 
@@ -120,6 +121,10 @@ $(document).ready(function () {
 
                 FileInput.hidden = !FileInput.hidden;
 
+            } // If
+
+            if(Update){
+                Update.disabled = !Update.disabled;
             } // If
 
         }); // EditButton AddEventListener

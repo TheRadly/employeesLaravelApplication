@@ -5,6 +5,7 @@ let SortTypeSelect = $('#formSelectSortType')[0];
 let SearchSelect = $('#formSelectSearch')[0];
 let Table = $('#table')[0];
 let ButtonHideSort = $('#arrowDiv')[0];
+let MoreList = $('#moreList')[0];
 
 // Лимит списков на одной странице
 let Limit = 50;
@@ -124,7 +125,17 @@ function GetListEmployeers() {
 
                     let htmlTable = '';
 
-                    console.log(data);
+                    if(data.length < 50){
+
+                        MoreList.hidden = 'hidden';
+
+                    } // If - Если список меньше 50-ти человек, кнопка "Добавить еще" отключается
+                    else {
+
+                        MoreList.hidden = '';
+
+                    } // Else - Иначе включается обратно
+
 
                     data.forEach(employee => {
 
@@ -198,7 +209,7 @@ $(document).ready(function(){
 
     }); // Обработка клика для вывода полей сортировки
 
-    $("#moreList").click(function () {
+    MoreList.addEventListener('click', function () {
 
         Limit += 50;
         GetListEmployeers();

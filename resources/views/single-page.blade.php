@@ -37,9 +37,10 @@
                                 <form method="POST" action="/api/get-current-employeer">
 
                                     <div class="form-group row">
-                                        <label for="id" class="col-4 col-form-label">ID: </label>
-                                        <div class="col-8">
-                                            <input disabled value="{{$employeer->id}}" id="id" name="id" class="form-control here" required="required" type="text">
+                                        <label for="idEmployee" class="col-4 col-form-label">ID: </label>
+                                        <div class="col-8 align-self-center">
+                                            <label style="margin-bottom: 0px;">{{$employeer->id}}</label>
+                                            <input value="{{$employeer->id}}" type="hidden" id="idEmployee" name="idEmployee">
                                         </div>
                                     </div>
 
@@ -88,29 +89,39 @@
                                     </div>
 
                                     <div class="form-group row">
+
                                         <label for="chief" class="col-4 col-form-label">Шеф: </label>
 
-                                            @if ($employeer->chiefID === null)
+                                        @if ($employeer->chiefID === null)
 
-                                                <div class="col-8">
-                                                    <input disabled value="Отсутствует" id="chief" name="chief"  class="form-control here" required="required" type="text">
-                                                </div>
+                                            <div class="col-5">
+                                                <input disabled value="Отсутствует" id="chief" name="chief"  class="form-control here" required="required" type="text">
+                                            </div>
 
-                                            @else
+                                            <div class="col-1 align-self-center">
+                                                <label style="margin-bottom: 0px;">ID: </label>
+                                            </div>
 
-                                                <div class="col-5">
-                                                    <input disabled value="{{$director->firstName . ' ' . $director->lastName . ' ' . $director->surName}}" id="chief" name="chief"  class="form-control here" required="required" type="text">
-                                                </div>
+                                            <div class="col-2">
+                                                <input disabled min="1" value="" id="chiefID" name="chiefID" class="form-control here" type="number">
+                                            </div>
 
-                                                <div class="col-1 align-self-center">
-                                                    <label style="margin-bottom: 0px;">ID: </label>
-                                                </div>
+                                        @else
 
-                                                <div class="col-2">
-                                                    <input disabled min="1" value="{{$director->id}}" id="chiefID" name="chiefID" class="form-control here" required="required" type="number">
-                                                </div>
+                                            <div class="col-5">
+                                                <input disabled value="{{$director->firstName . ' ' . $director->lastName . ' ' . $director->surName}}" id="chief" name="chief"  class="form-control here" required="required" type="text">
+                                            </div>
 
-                                            @endif
+                                            <div class="col-1 align-self-center">
+                                                <label style="margin-bottom: 0px;">ID: </label>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <input disabled min="1" value="{{$director->id}}" id="chiefID" name="chiefID" class="form-control here" required="required" type="number">
+                                            </div>
+
+                                        @endif
+
 
                                     </div>
 
@@ -125,8 +136,7 @@
                                     <div class="form-group row">
                                         <label for="adoptionDate" class="col-4 col-form-label">Дата приема на работу: </label>
                                         <div class="col-8">
-                                            {{--<input id="adoptionDate" name="adoptionDate" class="form-control here" required="required" type="text">--}}
-                                            <span id="adoptionDate" name="adoptionDate">{{$employeer->adoptionDate}}</span>
+                                            <span>{{$employeer->adoptionDate}}</span>
                                         </div>
                                     </div>
 

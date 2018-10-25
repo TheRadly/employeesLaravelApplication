@@ -58,8 +58,27 @@ class ApiController extends Controller {
 
     public function GetCurrentEmployeer(Request $request){
 
-//        Employeer::where('id', '=', id)->update(['firstname' => firstname, 'ln' => ln]);
-//        $employees = Employeer::join('positions', 'employeers.positionID', '=', 'positions.positionID');
+      $id = $request->get('idEmployee');
+      $firstName = $request->get('firstName');
+      $lastName = $request->get('lastName');
+      $surName = $request->get('surName');
+      $positionID = $request->get('postValue');
+      $chiefID = $request->get('chiefID');
+      $salary = $request->get('salary');
+
+
+      if($chiefID === null){
+          Employeer::where('id', '=', $id)->update(['firstName' => $firstName, 'lastName' => $lastName, 'surName'=> $surName,
+              'positionID' => $positionID, 'salary' => $salary]);
+      } // If
+      else {
+          Employeer::where('id', '=', $id)->update(['firstName' => $firstName, 'lastName' => $lastName, 'surName'=> $surName,
+              'positionID' => $positionID, 'chiefID' => $chiefID, 'salary' => $salary]);
+      } // Else
+
+
+      return redirect('/single-page/' . $id);
+      //$employees = Employeer::join('positions', 'employeers.positionID', '=', 'positions.positionID');
 
     } // GetCurrentEmployeer
 
