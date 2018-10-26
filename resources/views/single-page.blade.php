@@ -2,39 +2,45 @@
 
 @section('content')
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 ">
+@if(Auth::check())
 
-                <img class="border border-dark rounded" style="height: 370px;  object-fit: cover; width: 270px;" src="https://лада.онлайн/uploads/posts/2015-01/1421148530_pf240_1.jpg">
-                <div hidden id="inputFile" class="custom-file" style="margin-top: 15px;">
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*" required>
-                    <label class="custom-file-label" for="validatedCustomFile" id="imageLabel">Choose file...</label>
+    <form enctype="multipart/form-data" method="POST" action="/api/get-current-employeer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-3 ">
+
+                    <img class="border border-dark rounded" style="height: 370px;  object-fit: cover; width: 270px;" src="{{$employeer->imageProfile ? '/img/emp/'.$employeer->imageProfile : 'https://pbs.twimg.com/profile_images/824716853989744640/8Fcd0bji_400x400.jpg'}}">
+
+                    <div hidden id="inputFile" class="custom-file" style="margin-top: 15px;">
+                        <input name="image" type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*">
+                        <label class="custom-file-label" for="validatedCustomFile" id="imageLabel">Choose file...</label>
+                    </div>
+
                 </div>
 
-            </div>
-            <div class="col-md-9">
+                <div class="col-md-9">
 
-                <div class="card">
+                    <div class="card">
 
-                    <div class="card-body">
+                        <div class="card-body">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-md-12">
+                                <div class="col-md-12">
 
-                                <h4>Профиль сотрудника: {{$employeer->lastName . ' ' . $employeer->firstName . ' ' . $employeer->surName}}</h4>
-                                <hr>
+                                    <h4>Профиль сотрудника: {{$employeer->lastName . ' ' . $employeer->firstName . ' ' . $employeer->surName}}</h4>
+                                    <hr>
+
+                                </div>
 
                             </div>
 
-                        </div>
+                            <div class="row">
 
-                        <div class="row">
-
-                            <div class="col-md-12">
-
-                                <form method="POST" action="/api/get-current-employeer">
+                                <div class="col-md-12">
 
                                     <div class="form-group row">
                                         <label for="idEmployee" class="col-4 col-form-label">ID: </label>
@@ -136,27 +142,41 @@
                                     <div class="form-group row">
                                         <label for="adoptionDate" class="col-4 col-form-label">Дата приема на работу: </label>
                                         <div class="col-8">
-                                            <span>{{$employeer->adoptionDate}}</span>
+                                            <input disabled value="{{$employeer->adoptionDate}}" id="adoptionDate" name="adoptionDate" class="form-control here" required="required" type="text">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
 
-                                        <div class="offset-4 col-8">
+                                        <div id="confirmButtonsAndMessage" class="offset-4 col-8">
                                             <button disabled id="submit" name="submit" type="submit" class="btn btn-primary">Обновить данные</button>
                                             <div id="editEmployee" name="editEmployee" class="btn btn-dark">Редактировать сотрудника</div>
                                         </div>
 
                                     </div>
-                                </form>
+
+                                </div>
 
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
-    </div>
+
+    </form>
 
     <script src="{{ asset('js/SinglePageUser.js' )}}"></script>
+
+@else
+
+    @include('auth.login')
+
+@endif
+
 @endsection

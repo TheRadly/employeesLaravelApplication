@@ -119,28 +119,28 @@ function GetListEmployeers() {
 
                 ClearTable(Table);
 
+                if(data.length < 50 || data.length === 0){
+
+                    MoreList.hidden = 'hidden';
+
+                } // If - Если список меньше 50-ти человек, кнопка "Добавить еще" отключается
+                else {
+
+                    MoreList.hidden = '';
+
+                } // Else - Иначе включается обратно
+
                 if(data && data.length > 0){
 
                     listArray = data;
 
                     let htmlTable = '';
 
-                    if(data.length < 50){
-
-                        MoreList.hidden = 'hidden';
-
-                    } // If - Если список меньше 50-ти человек, кнопка "Добавить еще" отключается
-                    else {
-
-                        MoreList.hidden = '';
-
-                    } // Else - Иначе включается обратно
-
-
                     data.forEach(employee => {
 
-                        htmlTable += `<tr style="cursor: pointer" class="singleStroke" data-id="${employee.id}">
+                        htmlTable += `<tr style="cursor: pointer;" class="singleStroke" data-id="${employee.id}">
                                         <th scope="row"><p>${employee.id}</p></th>
+                                        <td><img class="rounded-circle" style="object-fit: cover; width: 50px; height: 50px" src="${employee.imageProfile ? `/img/emp/${employee.imageProfile}` : 'https://pbs.twimg.com/profile_images/824716853989744640/8Fcd0bji_400x400.jpg'}"></td>
                                         <td>${employee.firstName}</td>
                                         <td>${employee.lastName}</td>
                                         <td>${employee.surName}</td>

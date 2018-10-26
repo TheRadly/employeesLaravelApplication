@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Employeer;
-use \DB;
+use \Storage;
 
 class ApiController extends Controller {
 
@@ -65,20 +65,43 @@ class ApiController extends Controller {
       $positionID = $request->get('postValue');
       $chiefID = $request->get('chiefID');
       $salary = $request->get('salary');
+      $adoptionDate = $request->get('adoptionDate');
+      $fileName = null;
 
+        if($request->hasFile('image')){
 
-      if($chiefID === null){
-          Employeer::where('id', '=', $id)->update(['firstName' => $firstName, 'lastName' => $lastName, 'surName'=> $surName,
-              'positionID' => $positionID, 'salary' => $salary]);
-      } // If
-      else {
-          Employeer::where('id', '=', $id)->update(['firstName' => $firstName, 'lastName' => $lastName, 'surName'=> $surName,
-              'positionID' => $positionID, 'chiefID' => $chiefID, 'salary' => $salary]);
-      } // Else
+            $file = $request->file('image');
+            $ext = $file->extension();
+            $fileName = "${id}.${ext}";
 
+            Storage::disk('public_img')->putFileAs('/', $file, $fileName);
 
-      return redirect('/single-page/' . $id);
-      //$employees = Employeer::join('positions', 'employeers.positionID', '=', 'positions.positionID');
+        } // If
+
+        $data = [];
+
+        $data['firstName'] = $firstName;
+        $data['lastName'] = $lastName;
+        $data['surName'] = $surName;
+        $data['positionID'] = $positionID;
+        $data['salary'] = $salary;
+        $data['adoptionDate'] = $adoptionDate;
+
+        if($chiefID){
+
+            $data['chiefID'] = $chiefID;
+
+        } // If
+
+        if($fileName){
+
+            $data['imageProfile'] = $fileName;
+
+        } // If
+
+        Employeer::where('id', '=', $id)->update($data);
+
+        return redirect('/single-page/' . $id);
 
     } // GetCurrentEmployeer
 

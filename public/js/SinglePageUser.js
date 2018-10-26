@@ -59,6 +59,20 @@ $(document).ready(function () {
 
     } // If
 
+    if(Update){
+
+        Update.addEventListener('click', function (event) {
+
+            if(!confirm('Вы уверены что хотите обновить сотрудника?')){
+
+                event.preventDefault();
+
+            } // If
+
+        }); // Update Click
+
+    } // If
+
     // if(Delete){
     //
     //     Delete.addEventListener('click', function (event) {
