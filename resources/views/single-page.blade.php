@@ -12,7 +12,7 @@
 
                 <div class="col-md-3 ">
 
-                    <img class="border border-dark rounded" style="height: 370px;  object-fit: cover; width: 270px;" src="{{$employeer->imageProfile ? '/img/emp/'.$employeer->imageProfile : 'https://pbs.twimg.com/profile_images/824716853989744640/8Fcd0bji_400x400.jpg'}}">
+                                      <img class="border border-dark rounded" style="height: 370px;  object-fit: cover; width: 270px;" src="{{$employeer->imageProfile ? '/img/emp/'.$employeer->imageProfile : 'https://pbs.twimg.com/profile_images/824716853989744640/8Fcd0bji_400x400.jpg'}}">
 
                     <div hidden id="inputFile" class="custom-file" style="margin-top: 15px;">
                         <input name="image" type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*">
@@ -94,22 +94,14 @@
 
                                     </div>
 
-                                    <div class="form-group row">
+                                    <div id="chiefDiv" class="form-group row">
 
                                         <label for="chief" class="col-4 col-form-label">Шеф: </label>
 
                                         @if ($employeer->chiefID === null)
 
-                                            <div class="col-5">
+                                            <div class="col-8">
                                                 <input disabled value="Отсутствует" id="chief" name="chief"  class="form-control here" required="required" type="text">
-                                            </div>
-
-                                            <div class="col-1 align-self-center">
-                                                <label style="margin-bottom: 0px;">ID: </label>
-                                            </div>
-
-                                            <div class="col-2">
-                                                <input disabled min="1" value="" id="chiefID" name="chiefID" class="form-control here" type="number">
                                             </div>
 
                                         @else
@@ -134,7 +126,7 @@
                                     <div class="form-group row">
                                         <label for="salary" class="col-4 col-form-label">Зарплата: </label>
                                         <div class="col-8">
-                                            <input disabled value="{{$employeer->salary}}" id="salary" name="salary"  class="form-control here" required="required" type="text">
+                                            <input disabled min="1" max="300000" value="{{$employeer->salary}}" id="salary" name="salary"  class="form-control here" required="required" type="number">
                                         </div>
                                     </div>
 
@@ -142,7 +134,7 @@
                                     <div class="form-group row">
                                         <label for="adoptionDate" class="col-4 col-form-label">Дата приема на работу: </label>
                                         <div class="col-8">
-                                            <input disabled value="{{$employeer->adoptionDate}}" id="adoptionDate" name="adoptionDate" class="form-control here" required="required" type="text">
+                                            <input disabled value="{{str_replace(' ', 'T', $employeer->adoptionDate)}}" id="adoptionDate" name="adoptionDate" class="form-control here" required="required" type="datetime-local">
                                         </div>
                                     </div>
 

@@ -19,4 +19,10 @@ class SinglePageController extends Controller {
 
     } // ReturnViewSinglePage
 
+    public function CreateNewEmployeer(){
+
+        return view('new-user');
+
+    } // CreateNewEmployeer
+
 } // SinglePageController

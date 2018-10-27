@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Employeer;
 use \Storage;
+use \DB;
 
 class ApiController extends Controller {
 
@@ -112,5 +113,48 @@ class ApiController extends Controller {
         return response()->json($newChief);
 
     } // GetNewChief
+
+    public function GetNewEmployeer(Request $request){
+
+        $firstName = $request->get('firstName');
+        $lastName = $request->get('lastName');
+        $surName = $request->get('surName');
+        $positionID = $request->get('postValue');
+        $chiefID = $request->get('chiefID');
+        $salary = $request->get('salary');
+        $adoptionDate = $request->get('adoptionDate');
+        $fileName = null;
+
+        $data = [];
+
+        $data['firstName'] = $firstName;
+        $data['lastName'] = $lastName;
+        $data['surName'] = $surName;
+        $data['positionID'] = $positionID;
+        $data['salary'] = $salary;
+        $data['adoptionDate'] = $adoptionDate;
+
+        if($chiefID){
+
+            $data['chiefID'] = $chiefID;
+
+        } // If
+
+        $id = Employeer::insertGetId($data);
+
+        if($request->hasFile('image')){
+
+            $file = $request->file('image');
+            $ext = $file->extension();
+            $fileName = "${id}.${ext}";
+
+            Storage::disk('public_img')->putFileAs('/', $file, $fileName);
+            Employeer::where('id', '=', $id)->update(['imageProfile' => $fileName]);
+
+        } // If
+
+        return redirect('/single-page/' . $id);
+
+    } // GetNewEmployeer
 
 } // ApiController

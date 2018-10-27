@@ -12,6 +12,7 @@ $(document).ready(function () {
     let Chief = $('#chief')[0];
     let Position = $('#postValue')[0];
     let Update = $('#submit')[0];
+    let ChiefDiv = $('#chiefDiv')[0];
 
     if(ChiefID){
 
@@ -37,19 +38,19 @@ $(document).ready(function () {
 
                         if(Chief){
 
-                            Chief.value = '';
+                            Chief.value = 'Chief not found..';
+                            ChiefID.value = '';
 
                         } // If
 
                     } // Else
 
-
-
                 }).fail(function () {
 
                     if(Chief){
 
-                        Chief.value = '';
+                        Chief.value = 'Chief not found..';
+                        ChiefID.value = '';
 
                     } // If
 
@@ -70,6 +71,41 @@ $(document).ready(function () {
             } // If
 
         }); // Update Click
+
+    } // If
+
+    if(Position){
+
+        let selectedIndex = $("#postValue option:selected").val();
+
+        if(selectedIndex === '1'){
+
+            ChiefDiv.innerHTML = `<label for="chief" class="col-4 col-form-label">Шеф: </label>
+                                       <div class="col-8">
+                                          <input disabled value="Отсутствует" id="${Chief}" name="chief"  class="form-control here" type="text">
+                                       </div>
+                                     `;
+
+        } // If
+
+        Position.addEventListener('change',function (event) {
+
+            if(event.srcElement.value !== '1'){
+
+               return false;
+
+            } // If
+            else{
+
+                ChiefDiv.innerHTML = `<label for="chief" class="col-4 col-form-label">Шеф: </label>
+                                       <div class="col-8">
+                                          <input disabled value="Отсутствует" id="chief" name="chief"  class="form-control here" type="text">
+                                       </div>
+                                     `;
+
+            } // Else
+
+        });
 
     } // If
 

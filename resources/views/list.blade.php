@@ -81,6 +81,8 @@
         <p id="arrowDiv" style="font-size: 18px; text-align: center; color:#5c5c5c">Развернуть поля поиска</p>
     </div>
 
+    <a href="{{route('createNewEmployeer')}}" class="btn btn-outline-primary mb-3 ml-3">Создать нового сотрудника</a>
+
     <table class="table table-inverse table-hover">
 
         <thead>
