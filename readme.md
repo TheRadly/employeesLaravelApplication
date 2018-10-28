@@ -1,5 +1,4 @@
 <p align="center"><img src="https://i.work.ua/employer_design/8/0/1/117801_company_logo_5.png"></p>
-    <span>Employeers Laravel Test</span>
 <p align="center">
 
 ## About the application (О приложении)
@@ -10,32 +9,32 @@
 ## Install (Установка)
 
 1. Download the application in .zip archive, or make git clone (Скачать приложение в .zip архиве, либо сделать git clone) - https://github.com/TheRadly/employeesLaravelApplication.git
-2. Enter in the console at the root of the application (Ввести в консоли в корне приложения) - `**composer update**`
+2. Enter in the console at the root of the application (Ввести в консоли в корне приложения) - **`composer update`**
 3. Write the path to the Database in the **.env** file (Прописать путь к Базе Данных в файле **.env**)
-4. Create a database called (Создайте базу данных, которая называется) (!!required!!) - `**employee**`
-5. Write in the console in the root of the application (Пропишите в консоли в корне приложения) - `**php artisan migrate**` and `**php artisan db:seed**`
+4. Create a database called (Создайте базу данных, которая называется) (!!required!!) - **`employee`**
+5. Write in the console in the root of the application (Пропишите в консоли в корне приложения) - **`php artisan migrate`** and **`php artisan db:seed`**
 
-Complete!
+**Complete!**
 
 ## Run application (Запуск приложения)
 
-Write in the console in the root of the application (Пропишите в консоли в корне приложения) - `**php artisan serve**` or `**npm start**` (To choose)
+Write in the console in the root of the application (Пропишите в консоли в корне приложения) - **`php artisan serve`** or **`npm start`** (To choose)
  
 ## About the test task (О задании)
 
 Часть​ ​No1​ ​(обязательная)
-Создайте веб страницу, которая будет выводить иерархию сотрудников в
+1. Создайте веб страницу, которая будет выводить иерархию сотрудников в
 древовидной ​форме.
-● Информация о каждом сотруднике должна храниться в базе данных и
+2. Информация о каждом сотруднике должна храниться в базе данных и
 содержать ​следующие ​данные:
-○ ФИО;
-○ Должность;
-○ Дата ​приема ​на ​работу;
-○ Размер ​заработной ​платы;
-● У ​каждого ​сотрудника ​есть ​1 ​начальник;
-● База данных должна содержать не менее 50 000 сотрудников и 5 уровней
+2.1 ФИО;
+2.2 Должность;
+2.3 Дата ​приема ​на ​работу;
+2.4 Размер ​заработной ​платы;
+2.5 У ​каждого ​сотрудника ​есть ​1 ​начальник;
+8. База данных должна содержать не менее 50 000 сотрудников и 5 уровней
 иерархий.
-● Не ​забудьте ​отобразить ​должность ​сотрудника.
+9. Не ​забудьте ​отобразить ​должность ​сотрудника. - **Complete**
 
 Часть​ ​No2​ ​(опциональная)
 1. Создайте ​базу ​данных ​используя ​миграции ​Laravel ​/ ​Symfony. - **Complete**
