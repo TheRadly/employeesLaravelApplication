@@ -20,10 +20,12 @@ Route::get('get-employeers/{id}', 'ApiController@GetEmployeers');
 Route::post('get-list-employeers', 'ApiController@GetListEmployeers');
 
 // API: GetCurrentEmployeer
-Route::post('get-current-employeer', 'ApiController@GetCurrentEmployeer');
+Route::post('get-current-employeer', 'ApiController@GetCurrentEmployeer')->name('getCurrentEmployeer');
 
 // API: GetNewChief
 Route::post('get-new-chief/{id}', 'ApiController@GetNewChief');
 
 // API: GetNewEmployeer
 Route::post('create-new-employeer', 'ApiController@GetNewEmployeer');
+
+Route::post('delete-employeer/{id}', 'ApiController@DeleteEmployeer')->name('deleteCurrentEmployeer');

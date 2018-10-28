@@ -151,6 +151,8 @@ function GetListEmployeers() {
 
                     }); // ForEach
 
+                    Table.innerHTML = htmlTable;
+
                     $(document).ready(function(){
 
                         $(".singleStroke").click(function(event){
@@ -162,8 +164,6 @@ function GetListEmployeers() {
                         }); // Click
 
                     }); // Document Ready - Анимация разворачивания/сворачивания полей
-
-                    Table.innerHTML = htmlTable;
 
                 } // If
                 else {

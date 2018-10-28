@@ -7,45 +7,38 @@ $(document).ready(function () {
     let EmploymentDate = $('#adoptionDate')[0];
     let Salary = $('#salary')[0];
     let EditButton = $('#editEmployee')[0];
-    //let Delete = $('#Delete')[0];
+    let Delete = $('#deleteEmployee')[0];
     let FileInput = $('#inputFile')[0];
     let Chief = $('#chief')[0];
     let Position = $('#postValue')[0];
     let Update = $('#submit')[0];
-    let ChiefDiv = $('#chiefDiv')[0];
+
+    let ChiefInfo = $('#chiefInfo')[0];
+    let LabelChiefID = $('#labelChiefID')[0];
+    let ChiefInputID = $('#chiefInputID')[0];
+    let ChiefNone = $('#chiefNone')[0];
 
     if(ChiefID){
 
         ChiefID.addEventListener('input', function (event) {
 
-                $.ajax({
-                    contentType: 'application/json',
-                    dataType: 'json',
-                    url: `/api/get-new-chief/${event.srcElement.value}`,
-                    type: 'POST'
-                }).done(function (data) {
+            $.ajax({
+                contentType: 'application/json',
+                dataType: 'json',
+                url: `/api/get-new-chief/${event.srcElement.value}`,
+                type: 'POST'
+            }).done(function (data) {
 
-                    if(data.id){
+                if(data.id){
 
-                        if(Chief){
+                    if(Chief){
 
-                            Chief.value = `${data.lastName} ${data.firstName} ${data.surName}`;
-
-                        } // If
+                        Chief.value = `${data.lastName} ${data.firstName} ${data.surName}`;
 
                     } // If
-                    else {
 
-                        if(Chief){
-
-                            Chief.value = 'Chief not found..';
-                            ChiefID.value = '';
-
-                        } // If
-
-                    } // Else
-
-                }).fail(function () {
+                } // If
+                else {
 
                     if(Chief){
 
@@ -54,7 +47,18 @@ $(document).ready(function () {
 
                     } // If
 
-                }); // Ajax
+                } // Else
+
+            }).fail(function () {
+
+                if(Chief){
+
+                    Chief.value = 'Chief not found..';
+                    ChiefID.value = '';
+
+                } // If
+
+            }); // Ajax
 
         }); // Chief AddEventListener
 
@@ -80,48 +84,53 @@ $(document).ready(function () {
 
         if(selectedIndex === '1'){
 
-            ChiefDiv.innerHTML = `<label for="chief" class="col-4 col-form-label">Шеф: </label>
-                                       <div class="col-8">
-                                          <input disabled value="Отсутствует" id="${Chief}" name="chief"  class="form-control here" type="text">
-                                       </div>
-                                     `;
+            ChiefInfo.hidden = true;
+            LabelChiefID.hidden = true;
+            ChiefInputID.hidden = true;
+
 
         } // If
+        else{
+            ChiefNone.hidden = true;
+        }
 
         Position.addEventListener('change',function (event) {
 
+            console.dir(ChiefNone);
             if(event.srcElement.value !== '1'){
 
-               return false;
+                ChiefNone.hidden = true;
+                ChiefInfo.hidden = false;
+                LabelChiefID.hidden = false;
+                ChiefInputID.hidden = false;
 
             } // If
             else{
 
-                ChiefDiv.innerHTML = `<label for="chief" class="col-4 col-form-label">Шеф: </label>
-                                       <div class="col-8">
-                                          <input disabled value="Отсутствует" id="chief" name="chief"  class="form-control here" type="text">
-                                       </div>
-                                     `;
+                ChiefNone.hidden = false;
+                ChiefInfo.hidden = true;
+                LabelChiefID.hidden = true;
+                ChiefInputID.hidden = true;
 
             } // Else
 
-        });
+        }); // Event
 
     } // If
 
-    // if(Delete){
-    //
-    //     Delete.addEventListener('click', function (event) {
-    //
-    //         if(!confirm('Are you sure you want to delete an employee?')){
-    //
-    //             event.preventDefault();
-    //
-    //         }//if
-    //
-    //     });
-    //
-    // }//if
+    if(Delete){
+
+        Delete.addEventListener('click', function (event) {
+
+            if(!confirm('Вы уверены что хотите удалить сотрудника?')){
+
+                event.preventDefault();
+
+            } // If
+
+        }); // Event
+
+    } // If
 
     if(EditButton){
 

@@ -157,4 +157,12 @@ class ApiController extends Controller {
 
     } // GetNewEmployeer
 
+    public function DeleteEmployeer($id){
+
+        Employeer::where('id','=',$id)->delete();
+
+        return redirect('/list-employees');
+
+    } // DeleteEmployeer
+
 } // ApiController
