@@ -1,5 +1,5 @@
 <p align="center"><img src="https://i.work.ua/employer_design/8/0/1/117801_company_logo_5.png"></p>
-    <span>Employeers Laravel Test</span>
+
 <p align="center">
     
  ## About the application (О приложении)
