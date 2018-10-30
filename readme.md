@@ -6,17 +6,14 @@
 
 ## Install (Установка)
  1. Download the application in .zip archive, or make git clone (Скачать приложение в .zip архиве, либо сделать git clone) - https://github.com/TheRadly/employeesLaravelApplication.git
-2. Enter in the console at the root of the application (Ввести в консоли в корне приложения) - `**composer update**`
 2. Enter in the console at the root of the application (Ввести в консоли в корне приложения) - **`composer update`**
 3. Write the path to the Database in the **.env** file (Прописать путь к Базе Данных в файле **.env**)
-4. Create a database called (Создайте базу данных, которая называется) (!!required!!) - `**employee**`
-5. Write in the console in the root of the application (Пропишите в консоли в корне приложения) - `**php artisan migrate**` and `**php artisan db:seed**`
 4. Create a database called (Создайте базу данных, которая называется) (!!required!!) - **`employee`**
 5. Write in the console in the root of the application (Пропишите в консоли в корне приложения) - **`php artisan migrate`** and **`php artisan db:seed`**
- Complete!
+
 **Complete!**
+
  ## Run application (Запуск приложения)
- Write in the console in the root of the application (Пропишите в консоли в корне приложения) - `**php artisan serve**` or `**npm start**` (To choose)
 Write in the console in the root of the application (Пропишите в консоли в корне приложения) - **`php artisan serve`** or **`npm start`** (To choose)
  
 ## About the test task (О задании)
