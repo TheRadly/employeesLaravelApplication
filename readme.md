@@ -2,7 +2,7 @@
 
 <p align="center">
     
- ### About the application (О приложении)
+ # About the application (О приложении)
 
 ## Install (Установка)
  1. Download the application in .zip archive, or make git clone (Скачать приложение в .zip архиве, либо сделать git clone) - https://github.com/TheRadly/employeesLaravelApplication.git
