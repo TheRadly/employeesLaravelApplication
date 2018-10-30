@@ -1,8 +1,9 @@
 <p align="center"><img src="https://i.work.ua/employer_design/8/0/1/117801_company_logo_5.png"></p>
     <span>Employeers Laravel Test</span>
 <p align="center">
+    
  ## About the application (О приложении)
-@@ -10,32 +9,32 @@
+
 ## Install (Установка)
  1. Download the application in .zip archive, or make git clone (Скачать приложение в .zip архиве, либо сделать git clone) - https://github.com/TheRadly/employeesLaravelApplication.git
 2. Enter in the console at the root of the application (Ввести в консоли в корне приложения) - `**composer update**`
