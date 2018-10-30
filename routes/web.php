@@ -22,6 +22,6 @@ Route::get('/list-employees', 'ListController@ListEmployees')->name('listEmploye
 
 Route::get('/single-page/{id}', 'SinglePageController@SinglePage')->name('singlePage');
 
-Route::get('create-new-employeer', 'SinglePageController@CreateNewEmployeer')->name('createNewEmployeer');
+Route::get('/create-new-employeer', 'SinglePageController@CreateNewEmployeer')->name('createNewEmployeer');
 
 Auth::routes();

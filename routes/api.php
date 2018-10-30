@@ -28,4 +28,5 @@ Route::post('get-new-chief/{id}', 'ApiController@GetNewChief');
 // API: GetNewEmployeer
 Route::post('create-new-employeer', 'ApiController@GetNewEmployeer');
 
+// API: DeleteEmployeers
 Route::post('delete-employeer/{id}', 'ApiController@DeleteEmployeer')->name('deleteCurrentEmployeer');

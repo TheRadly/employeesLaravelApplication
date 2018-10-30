@@ -5,6 +5,8 @@
 <!-- Если пользователь авторизирован -->
 @if(Auth::check())
 
+    <a href="{{route('createNewEmployeer')}}" class="btn btn-outline-primary mb-3 ml-3">Создать нового сотрудника</a>
+
     <div id="hiddenElementsSeacrhing" style="display: none">
 
         <div style="margin-left: 20px" id="formsSearching">
@@ -81,11 +83,9 @@
         <p id="arrowDiv" style="font-size: 18px; text-align: center; color:#5c5c5c">Развернуть поля поиска</p>
     </div>
 
-    <a href="{{route('createNewEmployeer')}}" class="btn btn-outline-primary mb-3 ml-3">Создать нового сотрудника</a>
+        <table class="table table-inverse table-hover">
 
-    <table class="table table-inverse table-hover">
-
-        <thead>
+            <thead>
 
             <tr>
 
@@ -100,13 +100,14 @@
 
             </tr>
 
-        </thead>
+            </thead>
 
-        <tbody class="table" id="table">
+            <tbody class="table" id="table">
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
+
 
     <div style="background: #ffffff; box-shadow: 0 0 2px rgba(0,0,0,0.5); cursor: pointer" id="moreList">
         <p style="font-size: 18px; text-align: center; color:#5c5c5c">Загрузить еще ..</p>

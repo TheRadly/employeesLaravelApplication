@@ -92,7 +92,7 @@ $(document).ready(function () {
         } // If
         else{
             ChiefNone.hidden = true;
-        }
+        } // Else
 
         Position.addEventListener('change',function (event) {
 

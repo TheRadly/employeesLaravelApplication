@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder {
         $this->call(PosSeeder::class);
         $this->call(EmployeesSeeder::class);
 
-    }
-}
+    } // run()
+
+} // DatabaseSeeder

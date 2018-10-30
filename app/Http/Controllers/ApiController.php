@@ -159,10 +159,55 @@ class ApiController extends Controller {
 
     public function DeleteEmployeer($id){
 
+        self::ChangeChief($id);
+
         Employeer::where('id','=',$id)->delete();
 
         return redirect('/list-employees');
 
     } // DeleteEmployeer
+
+    public static function ChangeChief($id){
+
+        $employeeWithChef = Employeer::where('chiefID', '=', $id)->get(['id']);
+
+        if(!$employeeWithChef){
+            return false;
+        } // If
+
+        else if(count($employeeWithChef) == 0){
+            return true;
+        } // Else If
+
+        $employees = Employeer::find($id);
+
+        if(!$employees){
+            return false;
+        } // If
+
+        if(count($employeeWithChef) > 0){
+
+            $chiefsID = Employeer::where('positionID', '=', $employees->positionID)->get(['id']);
+
+            $employeesLength = count($employeeWithChef);
+            $chiefsIDLength = count($chiefsID);
+
+            for( $i = 0; $i < $employeesLength; $i++ ){
+
+                do {
+                    $randomChief = $chiefsID[rand(0, $chiefsIDLength - 1)]->id;
+                } while ($id == $randomChief); // Do While
+
+                Employeer::where('id','=',$employeeWithChef[$i]->id)->update(['chiefID'=>$randomChief]);
+
+            } // For
+
+            return true;
+
+        } // If
+
+        return false;
+
+    } // ChangeChief
 
 } // ApiController

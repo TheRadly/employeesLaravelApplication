@@ -86,24 +86,28 @@
 
                                             <label for="chief" class="col-4 col-form-label">Шеф: </label>
 
-                                                <div class="col-5">
-                                                    <input disabled value="" id="chief" name="chief"  class="form-control here" required="required" type="text">
-                                                </div>
+                                            <div id="chiefNone" class="col-8">
+                                                <input disabled value="Шеф отсутствует" id="chiefNone" name="chiefNone" class="form-control here" type="text">
+                                            </div>
 
-                                                <div class="col-1 align-self-center">
-                                                    <label style="margin-bottom: 0px;">ID: </label>
-                                                </div>
+                                            <div id="chiefInfo" class="col-5">
+                                                <input form="updateForm" disabled value="" id="chief" name="chief" class="form-control here" type="text">
+                                            </div>
 
-                                                <div class="col-2">
-                                                    <input min="1" value="" id="chiefID" name="chiefID" class="form-control here" required="required" type="number">
-                                                </div>
+                                            <div id="labelChiefID" class="col-1 align-self-center">
+                                                <label style="margin-bottom: 0px;">ID: </label>
+                                            </div>
+
+                                            <div id="chiefInputID" class="col-2">
+                                                <input form="updateForm" min="1" value="" id="chiefID" name="chiefID" class="form-control here" required="required" type="number">
+                                            </div>
 
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="salary" class="col-4 col-form-label">Зарплата: </label>
                                             <div class="col-8">
-                                                <input min="1" max="300000" placeholder="Введите значение зарплаты сотрудника ..." value="" id="salary" name="salary"  class="form-control here" required="required" type="number">
+                                                <input min="1" max="300000" placeholder="Введите значение зарплаты сотрудника ..." value="" id="salary" name="salary" class="form-control here" required="required" type="number">
                                             </div>
                                         </div>
 
