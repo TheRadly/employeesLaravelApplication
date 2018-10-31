@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    let IDEmployee = $('#idEmployee')[0];
     let FirstName = $('#firstName')[0];
     let LastName = $('#lastName')[0];
     let SurName = $('#surName')[0];
@@ -31,11 +32,22 @@ $(document).ready(function () {
 
                 if(data.id){
 
-                    if(Chief){
+                    if(event.srcElement.value !== IDEmployee.value){
 
-                        Chief.value = `${data.lastName} ${data.firstName} ${data.surName}`;
+                        if(Chief){
+
+                            Chief.value = `${data.lastName} ${data.firstName} ${data.surName}`;
+                            ChiefID.className = 'form-control here';
+
+                        } // If
 
                     } // If
+                    else {
+
+                        Chief.value = 'You can not choose yourself!';
+                        ChiefID.className = 'form-control is-invalid';
+
+                    } // Else
 
                 } // If
                 else {
@@ -43,7 +55,7 @@ $(document).ready(function () {
                     if(Chief){
 
                         Chief.value = 'Chief not found..';
-                        ChiefID.value = '';
+                        ChiefID.className = 'form-control is-invalid';
 
                     } // If
 
@@ -54,7 +66,7 @@ $(document).ready(function () {
                 if(Chief){
 
                     Chief.value = 'Chief not found..';
-                    ChiefID.value = '';
+                    ChiefID.className = 'form-control is-invalid';
 
                 } // If
 
@@ -68,11 +80,21 @@ $(document).ready(function () {
 
         Update.addEventListener('click', function (event) {
 
-            if(!confirm('Вы уверены что хотите обновить сотрудника?')){
+            if(Chief.value === 'Chief not found..' || Chief.value === 'You can not choose yourself!'){
 
                 event.preventDefault();
 
             } // If
+            else{
+
+                if(!confirm('Вы уверены что хотите обновить сотрудника?')){
+
+                    event.preventDefault();
+
+                } // If
+
+            } // Else
+
 
         }); // Update Click
 
@@ -88,15 +110,18 @@ $(document).ready(function () {
             LabelChiefID.hidden = true;
             ChiefInputID.hidden = true;
 
+            ChiefID.value = null;
+            ChiefID.disabled = true;
 
         } // If
         else{
+
             ChiefNone.hidden = true;
+
         } // Else
 
         Position.addEventListener('change',function (event) {
 
-            console.dir(ChiefNone);
             if(event.srcElement.value !== '1'){
 
                 ChiefNone.hidden = true;
@@ -111,6 +136,9 @@ $(document).ready(function () {
                 ChiefInfo.hidden = true;
                 LabelChiefID.hidden = true;
                 ChiefInputID.hidden = true;
+
+                ChiefID.value = null;
+                ChiefID.disabled = true;
 
             } // Else
 
@@ -183,7 +211,15 @@ $(document).ready(function () {
             } // If
 
             if(Update){
+
                 Update.disabled = !Update.disabled;
+
+            } // If
+
+            if(Delete){
+
+                Delete.disabled = !Delete.disabled;
+
             } // If
 
         }); // EditButton AddEventListener

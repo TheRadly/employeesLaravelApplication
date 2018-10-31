@@ -18,7 +18,7 @@
                     <img class="border border-dark rounded" style="height: 370px;  object-fit: cover; width: 270px;" src="{{$employeer->imageProfile ? '/img/emp/'.$employeer->imageProfile : 'https://pbs.twimg.com/profile_images/824716853989744640/8Fcd0bji_400x400.jpg'}}">
 
                     <div hidden id="inputFile" class="custom-file" style="margin-top: 15px;">
-                        <input name="image" type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*">
+                        <input form="updateForm" name="image" type="file" class="custom-file-input" id="validatedCustomFile" accept="image/*">
                         <label class="custom-file-label" for="validatedCustomFile" id="imageLabel">Choose file...</label>
                     </div>
 
@@ -102,11 +102,11 @@
                                         <label for="chief" class="col-4 col-form-label">Шеф: </label>
 
                                             <div id="chiefNone" class="col-8">
-                                                <input form="updateForm" disabled value="Отсутствует" class="form-control here" required="required" type="text">
+                                                <input form="updateForm" disabled value="Отсутствует" class="form-control here" type="text">
                                             </div>
 
                                             <div id="chiefInfo" class="col-5">
-                                                <input form="updateForm" disabled value="{{$director ? $director->firstName . ' ' . $director->lastName . ' ' . $director->surName : ''}}" id="chief" name="chief"  class="form-control here" required="required" type="text">
+                                                <input form="updateForm" disabled value="{{$director ? $director->firstName . ' ' . $director->lastName . ' ' . $director->surName : ''}}" id="chief" name="chief"  class="form-control here" type="text">
                                             </div>
 
                                             <div id="labelChiefID" class="col-1 align-self-center">

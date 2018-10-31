@@ -93,6 +93,9 @@ class ApiController extends Controller {
             $data['chiefID'] = $chiefID;
 
         } // If
+        else{
+            $data['chiefID'] = null;
+        } // Else
 
         if($fileName){
 
