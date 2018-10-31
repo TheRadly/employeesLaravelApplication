@@ -1,65 +1,72 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p align="center"><img src="https://i.work.ua/employer_design/8/0/1/117801_company_logo_5.png"></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+    
+ # About the application (О приложении)
 
-## About Laravel
+## Install (Установка)
+ 1. Download the application in .zip archive, or make git clone (Скачать приложение в .zip архиве, либо сделать git clone) - https://github.com/TheRadly/employeesLaravelApplication.git
+2. Enter in the console at the root of the application (Ввести в консоли в корне приложения) - **`composer update`**
+3. Write the path to the Database in the **.env** file (Прописать путь к Базе Данных в файле **.env**)
+4. Create a database called (Создайте базу данных, которая называется) (!!required!!) - **`employee`**
+5. Write in the console in the root of the application (Пропишите в консоли в корне приложения) - **`php artisan migrate`** and **`php artisan db:seed`**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+**Complete!**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ ## Run application (Запуск приложения)
+Write in the console in the root of the application (Пропишите в консоли в корне приложения) - **`php artisan serve`** or **`npm start`** (To choose)
+ 
+## About the test task (О задании)
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+**Часть​ ​No1​ ​(обязательная)**
 
-## Learning Laravel
+1. Создайте веб страницу, которая будет выводить иерархию сотрудников в
+древовидной ​форме.
+2. Информация о каждом сотруднике должна храниться в базе данных и
+содержать ​следующие ​данные:
+3. 1 - ФИО;
+4. 2 - Должность;
+5. 3 - Дата ​приема ​на ​работу;
+6. 4 - Размер ​заработной ​платы;
+3. 5 - У ​каждого ​сотрудника ​есть ​1 ​начальник;
+4. База данных должна содержать не менее 50 000 сотрудников и 5 уровней
+5. Не ​забудьте ​отобразить ​должность ​сотрудника. - **Complete**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+**Часть​ ​No2​ ​(опциональная)**
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ 1. Создайте ​базу ​данных ​используя ​миграции ​Laravel ​/ ​Symfony. - **Complete**
+ 2. Используйте ​Laravel ​/ ​Symfony ​seeder ​для ​заполнения ​базы ​данных. - **Complete**
+ 3. Используйте ​Twitter ​Bootstrap ​для ​создания ​базовых ​стилей ​Вашей ​страницы. - **Complete**
+ 4. Создайте еще одну страницу и выведите на ней список сотрудников со всей 
+ имеющейся о сотруднике информацией из базы данных и возможностью
+ сортировать ​по ​любому ​полю. - **Complete**
+ 5. Добавьте возможность поиска сотрудников по любому полю для страницы
+ созданной ​в ​задаче ​4. - **Complete**
+ 6. Добавьте возможность сортировать (и искать если Вы выполнили задачу No5)
+ по ​любому ​полю ​без ​перезагрузки ​страницы, ​например ​используя ​ajax. - **Complete**
+ 7. Используя стандартные функции Laravel / Symfony, осуществите 
+ аутентификацию пользователя для раздела веб сайта доступного только для
+ зарегистрированных ​пользователей. - **Complete**
+ 8. Перенесите функционал разработанный в задачах 4, 5 и 6 (используя ajax
+ запросы) ​в ​раздел ​доступный ​только ​для ​зарегистрированных ​пользователей. - **Complete**
+ 9. В разделе доступном только для зарегистрированных пользователей,
+ реализуйте остальные CRUD операции для записей сотрудников. Пожалуйста
+ заметьте, что все поля касающиеся пользователей должны быть
+ редактируемыми, ​включая ​начальника ​каждого ​сотрудника. - **Complete**
+ 10. Осуществите возможность загружать фотографию сотрудника и отобразите ее
+ на странице, где можно редактировать данные о сотрудник. Добавьте
+ дополнительную колонку с уменьшенной фотографией сотрудника на
+ странице ​списка ​всех ​сотрудников. - **Complete**
+ 11. Осуществите возможность перераспределения сотрудников в случае
+ изменения начальника (бонусом может быть то, что вы сможете это
+ осуществить с применением встроенных механизмов/парадигм, предлагаемых
+ Laravel ​/ ​Symfony ​ORM). - **Complete**
+ 12. Реализуйте ленивую загрузку для дерева сотрудников. Например, показывайте
+ первые два уровня иерархии по умолчанию и подгружайте 2 следующих
+ уровня ​или ​всю ​ветку ​дерева ​при ​клике ​на ​сотрудника ​второго ​уровня. - **Complete**
+ 13. Реализуйте возможность менять начальника сотрудника используя drag-n-drop
+ сразу ​в ​дереве ​сотрудников. - **Non-Complete**
+ 14. Создайте структуру базы данных используя MySQL Workbench (не забудьте
+ закомитить проект MySQL Workbench в git) и сгенерируйте файл(ы) миграций с
+ помощью Laravel / Symfony из существующей БД MySQL, или прямо из файла
+ проекта ​MySQL ​Workbench.  - **Non-Complete**
