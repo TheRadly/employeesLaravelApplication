@@ -24,12 +24,14 @@ let ajaxReq = new shield.RecursiveDataSource({
 
                                 text: `${item.firstName} ${item.lastName} ${item.surName} (${item.postValue})`,
                                 id: item.id,
-                                hasChildren: item.positionID === 5 ? false : true,
+                                hasChildren: item.countEmployees > 0,
                                 items: ajaxReq
 
                             });
 
-                        });
+                            console.log(item);
+
+                        }); // Data
 
                         success(nodes, false, currentNode);
 

@@ -24,6 +24,12 @@ class ApiController extends Controller {
 
         } // Else
 
+        for($i = 0; $i < count($employeers); $i++){
+
+            $employeers[$i]->countEmployees = Employeer::where('chiefID','=', $employeers[$i]->id)->count();
+
+        } // For I
+
         return response()->json($employeers);
 
     } // GetEmployeers
