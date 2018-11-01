@@ -4,6 +4,8 @@
 
     @if(Auth::check())
 
+        <div id="newUser"></div>
+
         <form enctype="multipart/form-data" method="POST" action="/api/create-new-employeer">
 
             <div class="container">
@@ -91,7 +93,7 @@
                                             </div>
 
                                             <div id="chiefInfo" class="col-5">
-                                                <input form="updateForm" disabled value="" id="chief" name="chief" class="form-control here" type="text">
+                                                <input disabled value="" id="chief" name="chief" class="form-control here" type="text">
                                             </div>
 
                                             <div id="labelChiefID" class="col-1 align-self-center">
@@ -99,7 +101,7 @@
                                             </div>
 
                                             <div id="chiefInputID" class="col-2">
-                                                <input form="updateForm" min="1" value="" id="chiefID" name="chiefID" class="form-control here" required="required" type="number">
+                                                <input min="1" value="" id="chiefID" name="chiefID" class="form-control here" required="required" type="number">
                                             </div>
 
                                         </div>

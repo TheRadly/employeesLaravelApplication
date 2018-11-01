@@ -13,6 +13,7 @@ $(document).ready(function () {
     let Chief = $('#chief')[0];
     let Position = $('#postValue')[0];
     let Update = $('#submit')[0];
+    let NewUser = $('#newUser')[0];
 
     let ChiefInfo = $('#chiefInfo')[0];
     let LabelChiefID = $('#labelChiefID')[0];
@@ -32,20 +33,44 @@ $(document).ready(function () {
 
                 if(data.id){
 
-                    if(event.srcElement.value !== IDEmployee.value){
+                    if(!NewUser){
 
-                        if(Chief){
+                        if(event.srcElement.value !== IDEmployee.value){
 
-                            Chief.value = `${data.lastName} ${data.firstName} ${data.surName}`;
-                            ChiefID.className = 'form-control here';
+                            if(Chief){
+
+                                Chief.value = `${data.lastName} ${data.firstName} ${data.surName}`;
+                                ChiefID.className = 'form-control here';
+
+                            } // If
 
                         } // If
+                        else {
+
+                            Chief.value = 'You can not choose yourself!';
+                            ChiefID.className = 'form-control is-invalid';
+
+                        } // Else
 
                     } // If
-                    else {
+                    else{
 
-                        Chief.value = 'You can not choose yourself!';
-                        ChiefID.className = 'form-control is-invalid';
+                        if(event.srcElement.value){
+
+                            if(Chief){
+
+                                Chief.value = `${data.lastName} ${data.firstName} ${data.surName}`;
+                                ChiefID.className = 'form-control here';
+
+                            } // If
+
+                        } // If
+                        else {
+
+                            Chief.value = 'You can not choose yourself!';
+                            ChiefID.className = 'form-control is-invalid';
+
+                        } // Else
 
                     } // Else
 
@@ -128,6 +153,7 @@ $(document).ready(function () {
                 ChiefInfo.hidden = false;
                 LabelChiefID.hidden = false;
                 ChiefInputID.hidden = false;
+                ChiefID.disabled = false;
 
             } // If
             else{
